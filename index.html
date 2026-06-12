@@ -18,10 +18,10 @@
     <link rel="icon" type="image/svg+xml" sizes="512x512" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100%' height='100%' fill='%23030712'/><text y='75' x='15' font-size='70'>🧩</text></svg>">
     
     <!-- High-Resolution Apple Touch Icon -->
-    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100%' height='100%' fill='%23030712'/><text y='75' x='15' font-size='70'>🧩</text></svg>">
+    <link rel="apple-touch-icon" href="icon-192.png">
 
-    <!-- Full-Screen PWA Capabilities (Android/Chrome) via strict Base64 Web Manifest -->
-    <link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjoiQXV0aXNtIEZpeGVyIFBybyIsInNob3J0X25hbWUiOiJBdXRpc21GaXhlciIsInN0YXJ0X3VybCI6Ii4iLCJkaXNwbGF5Ijoic3RhbmRhbG9uZSIsImJhY2tncm91bmRfY29sb3IiOiIjMDMwNzEyIiwidGhlbWVfY29sb3IiOiIjMDMwNzEyIiwib3JpZW50YXRpb24iOiJwb3J0cmFpdCIsImljb25zIjpbeyJzcmMiOiJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJkeUI0YlhMdVp6MGlhSFIwY0RvdkwzZDNkeTVvY0dkaFpYTXZNakF3TUM5emRtY2lJSFpwWlhkQ2IzZzlaaUFnTUM4Z01UQXdJR0V4TURBZ2Z6NDhkbVZqZEMzM2FXUmphRzBnUFNJaE1EQXdaU0lnYUdWcFoyMDBQU0loTVRBd1pTSWdaMmxzYURzaU1ETXcoeE1pSWpzd2VHVjRkRzhnUFNJaE56VWlJSGg1UFNJeE5TSWdaMjl1ZEMxemF6bTlaaUloTnpVaUlENXdubmNuUENOemRtY2lmRzgsIiwic2l6ZXMiOiI1MTJ4NTEyIiwidHlwZSI6ImltYWdlL3N2Zyt4bWwiLCJwdXJwb3NlIjoiYW55IG1hc2thYmxlIn1dfQ==" />
+    <!-- PWA Web Manifest -->
+    <link rel="manifest" href="manifest.json" />
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -418,6 +418,10 @@
                 resetApp();
             }
         });
+
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./sw.js');
+        }
     </script>
 </body>
 </html>
