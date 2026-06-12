@@ -2,8 +2,20 @@
 <html lang="en" class="h-full">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Autism Fixer Pro</title>
+    
+    <!-- Full-Screen PWA Capabilities (Android/Chrome) via Inline Web Manifest -->
+    <link rel="manifest" href='data:application/manifest+json,{"name":"Autism%20Fixer%20Pro","short_name":"AutismFixer","start_url":".","display":"standalone","background_color":"%23030712","theme_color":"%23030712","orientation":"portrait","icons":[{"src":"data:image/svg%252Bxml;utf8,<svg xmlns=%2522http://www.w3.org/2000/svg%2522 viewBox=%25220 0 100 100%2522><rect width=%2522100%2522 height=%2522100%2522 fill=%2522%2523030712%2522/><text y=%2522.9em%2522 font-size=%252280%2522>🧩</text></svg>","sizes":"512x512","type":"image/svg+xml"}]}' />
+    
+    <!-- iOS Web App Meta Tags (Safari Standalone Mode) -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Autism Fixer">
+    
+    <!-- High-Resolution Apple Touch Icon (using an inline SVG) -->
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100%' height='100%' fill='%23030712'/><text y='75' x='15' font-size='70'>🧩</text></svg>">
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -42,6 +54,9 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: #030712;
             overflow: hidden;
+            /* Extra padding helper for notched iPhones in full-screen standalone mode */
+            padding-top: env(safe-area-inset-top, 1rem);
+            padding-bottom: env(safe-area-inset-bottom, 1rem);
         }
         /* Satisfying geometric glowing borders */
         .neon-glow {
