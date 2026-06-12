@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autism Fixer Pro</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#3B82F6',
+                            teal: '#14B8A6',
+                            mint: '#34D399',
+                            dark: '#030712',
+                            indigo: '#4F46E5'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'shake': 'shake 0.5s ease-in-out',
+                        'spin-slow': 'spin 8s linear infinite',
+                        'ping-slow': 'ping 3s cubic-bezier(0, 0, 0.2, 1) infinite',
+                    },
+                    keyframes: {
+                        shake: {
+                            '0%, 100%': { transform: 'translateX(0)' },
+                            '10%, 30%, 50%, 70%, 90%': { transform: 'translateX(-5px)' },
+                            '20%, 40%, 60%, 80%': { transform: 'translateX(5px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #030712;
+            overflow: hidden;
+        }
+        /* Satisfying geometric glowing borders */
+        .neon-glow {
+            box-shadow: 0 0 20px rgba(20, 184, 166, 0.4);
+        }
+        .neon-glow-blue {
+            box-shadow: 0 0 25px rgba(59, 130, 246, 0.6);
+        }
+        .neon-text {
+            text-shadow: 0 0 10px rgba(20, 184, 166, 0.5);
+        }
+    </style>
+</head>
+<body class="h-full text-slate-100 flex flex-col justify-between p-4 selection:bg-brand-teal/30">
+
+    <!-- Top Navigation / Header -->
+    <header class="w-full max-w-md mx-auto py-4 px-6 bg-slate-900/90 border border-slate-800 backdrop-blur-md rounded-2xl flex items-center justify-between shadow-lg">
+        <div class="flex items-center gap-2.5">
+            <!-- Animated Custom SVG Symmetrical Geometric Block Icon -->
+            <div class="p-1.5 bg-brand-teal/20 rounded-lg text-brand-teal animate-pulse">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v14a1 1 0 01-1 1H5a1 1 0 01-1-1V5z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 4v16M15 4v16M4 9h16M4 15h16" />
+                </svg>
+            </div>
+            <span class="font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-brand-teal via-brand-blue to-brand-indigo text-lg">Autism Fixer Pro</span>
+        </div>
+        <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-brand-teal/10 text-brand-teal border border-brand-teal/20 uppercase tracking-widest animate-pulse-slow">v2.0 Beta</span>
+    </header>
+
+    <!-- Main Screen -->
+    <main id="main-screen" class="flex-1 w-full max-w-md mx-auto flex flex-col items-center justify-center gap-12 text-center transition-all duration-500 opacity-100">
+        <!-- Interactive hyper-organized visual anchor -->
+        <div class="relative flex items-center justify-center">
+            <div class="absolute w-44 h-44 bg-brand-teal/20 rounded-full blur-2xl animate-pulse-slow"></div>
+            <div class="absolute w-32 h-32 bg-brand-blue/20 rounded-full blur-xl"></div>
+            <div class="relative bg-slate-900/70 p-7 rounded-3xl border border-slate-800 shadow-2xl backdrop-blur-md flex items-center justify-center">
+                <!-- Symmetrical Infinite Loop / Special Interests Combo -->
+                <div class="flex flex-col items-center gap-3">
+                    <span class="text-5xl animate-spin-slow inline-block">♾️</span>
+                    <div class="flex gap-2 text-2xl">
+                        <span>🦖</span>
+                        <span>🚂</span>
+                        <span>📊</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="space-y-4 px-2">
+            <h1 class="text-3xl font-extrabold tracking-tight text-white md:text-4xl">
+                You have <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-teal via-brand-blue to-brand-mint neon-text">Autism!</span>
+            </h1>
+            <p class="text-slate-400 text-lg max-w-xs mx-auto">
+                Click below to fix your brain chemistry.
+            </p>
+        </div>
+
+        <!-- The Big CTA Button -->
+        <div class="w-full px-4">
+            <button id="fix-btn" class="group relative w-full py-5 rounded-2xl font-extrabold text-2xl tracking-widest text-white overflow-hidden transition-all duration-300 active:scale-95 neon-glow focus:outline-none">
+                <!-- Multi-layer background gradients -->
+                <span class="absolute inset-0 bg-gradient-to-r from-brand-teal via-brand-blue to-brand-teal bg-[length:200%_auto] transition-all duration-500 group-hover:bg-right" id="btn-bg"></span>
+                <!-- Pulse animation helper -->
+                <span class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-brand-teal to-brand-blue opacity-50 blur-lg transition-all duration-300 group-hover:opacity-100 animate-pulse"></span>
+                <span class="relative flex items-center justify-center gap-2">
+                    <span>FIX!</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transform transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                </span>
+            </button>
+        </div>
+    </main>
+
+    <!-- Loading / Fixing Screen (Hidden by Default) -->
+    <div id="loading-screen" class="hidden flex-1 w-full max-w-md mx-auto flex flex-col items-center justify-center gap-10 text-center transition-all duration-500 opacity-0 scale-95">
+        <div class="relative">
+            <!-- Loading Ring Animations -->
+            <div class="w-24 h-24 rounded-full border-4 border-slate-800"></div>
+            <div class="absolute inset-0 w-24 h-24 rounded-full border-4 border-t-brand-teal border-r-brand-blue animate-spin"></div>
+            <div class="absolute inset-2 w-20 h-20 rounded-full border-4 border-slate-800"></div>
+            <div class="absolute inset-2 w-20 h-20 rounded-full border-4 border-b-brand-mint border-l-brand-indigo animate-spin" style="animation-direction: reverse; animation-duration: 1.5s;"></div>
+            <!-- Center Symmetrical Icon rotating -->
+            <div class="absolute inset-0 flex items-center justify-center text-3xl animate-pulse">
+                🧩
+            </div>
+        </div>
+
+        <div class="space-y-4">
+            <h2 class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-teal to-brand-blue animate-pulse">
+                Fixing...
+            </h2>
+            <!-- Rotating funny autism-themed loading messages -->
+            <p id="loading-subtext" class="text-slate-400 font-semibold h-12 transition-all duration-300 ease-out px-4">
+                Sorting all database entries alphabetically...
+            </p>
+        </div>
+
+        <!-- Custom Mock Progress Bar -->
+        <div class="w-4/5 bg-slate-900 border border-slate-800 rounded-full h-4 overflow-hidden p-0.5">
+            <div id="progress-bar" class="bg-gradient-to-r from-brand-teal to-brand-blue h-full rounded-full transition-all duration-[7200ms] ease-out w-0"></div>
+        </div>
+    </div>
+
+    <!-- Error Alert Modal Overlay (Hidden by Default) -->
+    <div id="modal-overlay" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md opacity-0 transition-opacity duration-300">
+        <!-- Modal Card -->
+        <div id="modal-card" class="w-full max-w-md bg-slate-900 border border-brand-teal/30 rounded-3xl p-6 shadow-2xl relative transform scale-95 opacity-0 transition-all duration-300 flex flex-col items-center text-center gap-6">
+            
+            <!-- Alert Icon -->
+            <div class="w-16 h-16 rounded-2xl bg-brand-teal/10 border border-brand-teal/20 text-brand-teal flex items-center justify-center text-3xl shadow-lg shadow-brand-teal/5 animate-bounce">
+                ⚠️
+            </div>
+
+            <!-- Error Content -->
+            <div class="space-y-4 w-full">
+                <h3 class="text-xl font-black text-brand-teal uppercase tracking-wider">
+                    Fix Attempt Failed!
+                </h3>
+                <p class="text-white font-extrabold text-3xl tracking-tight leading-tight">
+                    You still have Autism...
+                </p>
+                <!-- Container for randomized developer failures -->
+                <div class="mt-4 p-4 bg-slate-950/50 rounded-xl border border-slate-800/80">
+                    <p class="text-[11px] text-slate-500 uppercase tracking-widest font-bold mb-1">Diagnostic Report</p>
+                    <p id="failure-reason" class="text-slate-300 text-sm italic font-medium leading-relaxed">
+                        Reason loading...
+                    </p>
+                </div>
+            </div>
+
+            <!-- Retry Button -->
+            <button id="close-modal-btn" class="w-full py-4 rounded-xl font-bold bg-slate-800 border border-slate-700 text-white hover:bg-slate-700 active:bg-slate-800 transition-colors duration-200">
+                Try Again (Maybe it'll work this time)
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer Disclaimer -->
+    <footer class="w-full max-w-md mx-auto text-center py-4 space-y-1">
+        <p class="text-[10px] text-slate-600 tracking-wider uppercase font-semibold">
+            Disclaimer: Not a clinical cure. Results may vary depending on local train schedule accuracy.
+        </p>
+        <p class="text-[10px] text-slate-500/80 tracking-wider uppercase font-semibold">
+            Copyright © Miguel Pessanha Pais
+        </p>
+    </footer>
+
+    <!-- Interactive Logic scripts -->
+    <script>
+        const fixBtn = document.getElementById('fix-btn');
+        const mainScreen = document.getElementById('main-screen');
+        const loadingScreen = document.getElementById('loading-screen');
+        const loadingSubtext = document.getElementById('loading-subtext');
+        const progressBar = document.getElementById('progress-bar');
+        const modalOverlay = document.getElementById('modal-overlay');
+        const modalCard = document.getElementById('modal-card');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const failureReasonEl = document.getElementById('failure-reason');
+
+        // Funny autism-themed progress subtexts
+        const dynamicSubtexts = [
+            "Sorting all database entries alphabetically...",
+            "Recalibrating the sensory texture of your socks...",
+            "Compiling a 400-page spreadsheet on eye contact...",
+            "Arranging the internal folders by color and shape...",
+            "Soundproofing all internal auditory channels...",
+            "Aligning household objects to perfect 90-degree angles...",
+            "Un-cooking the textures of food groups you dislike...",
+            "Downloading a script for standardized small talk...",
+            "Synchronizing the local train schedules...",
+            "Re-verifying dinosaur taxonomy...",
+            "Reading every line of the instruction manual twice...",
+            "Setting all system volumes to even numbers...",
+            "Calculating the mathematical formula of sarcasm...",
+            "Separating different food groups on your plate...",
+            "Drafting templates for ordering pizza on the phone...",
+            "Analyzing minor background hums in the electrical grid...",
+            "Filing away non-functional social invitations...",
+            "Configuring default facial expression presets...",
+            "Organizing books by height and color spectrum..."
+        ];
+
+        // 40 Funny diagnostic failure causes in the developer "We" perspective
+        const failureReasons = [
+            "We spent the last 8 hours optimizing the database to run in base-12 arithmetic because it felt mathematically superior.",
+            "We got hyperfocused on the historical accuracy of a minor background asset and forgot to write the actual fix logic.",
+            "We refused to compile the update because the line count of the code was not a prime number.",
+            "We spent 12 hours researching the acoustic differences between mechanical keyboard switches and missed the release window.",
+            "We got overwhelmed by the subtle high-pitched whine coming from our monitor and had to soundproof our entire office first.",
+            "We started organizing our desktop icons by color, then shape, then date of creation, and lost track of time.",
+            "We spent the entire afternoon infodumping to each other about the history of public transit networks.",
+            "We decided to rewrite the entire backend from scratch to make it perfectly modular, even though it was already working.",
+            "We bought a 1,000-piece Lego set to 'clear our minds' and haven't left our desks in three days.",
+            "We got stuck in an infinite research loop about the chemical properties of different types of clay.",
+            "The alignment process stalled because the texture of our hoodie strings suddenly felt incredibly wrong.",
+            "We spent 6 hours designing an overly complex spreadsheet to track our daily tea consumption.",
+            "We spent the entire day debating whether a hot dog qualifies as a sandwich and forgot to compile your brain layout.",
+            "We had to pause everything to clean and lubricate all our desk drawer slides for optimal sliding friction.",
+            "We spent the night writing a 12,000-word wiki page for an imaginary sci-fi universe we created.",
+            "We couldn't start working because someone moved our favorite mug 2 inches to the left.",
+            "We spent all day looking for a very specific pen that has the absolute perfect ink flow.",
+            "We got so hyperfocused on organizing the code comments alphabetically that we broke the compiler.",
+            "We got distracted reading a 500-page manual on the mechanics of vintage steam locomotives.",
+            "We refused to release the code because we couldn't find a hex code for the background that felt 'stable' enough.",
+            "We spent 14 hours modeling a mathematically perfect 3D torus instead of fixing your social script engine.",
+            "We got sidetracked cataloging every single dinosaur toy in our office by geographic era.",
+            "We couldn't proceed because the ambient sound of our refrigerator was not in the key of C-sharp.",
+            "We spent 8 hours setting up a smart-home automation rule that saves us approximately 3 seconds per day.",
+            "We got lost in a Wikipedia rabbit hole explaining the history of standardized screw thread sizes.",
+            "We spent the entire day sorting our bookshelf by the Dewey Decimal System.",
+            "We spent hours creating a perfectly balanced custom sound board of mechanical click sounds.",
+            "We got overwhelmed by a sudden transition in our daily schedule and had to sit in a quiet room to recalibrate.",
+            "We spent the last 48 hours researching the complete evolutionary taxonomy of the trilobite.",
+            "We got hyperfocused on analyzing the exact mathematical efficiency of our dishwasher layout.",
+            "We spent 6 hours analyzing the structural integrity of different types of packaging cardboard.",
+            "We got sidetracked creating a comprehensive map of a fictional train network with 400 stops.",
+            "We spent all night writing a Python script to automatically organize our sock drawer by thermal rating.",
+            "We couldn't work because someone used a sarcastic tone in an email and we spent 10 hours trying to decode it.",
+            "We spent the day researching the exact manufacturing history of the glass marbles we found in a drawer.",
+            "We got sidetracked analyzing the structural load capacity of our office chairs.",
+            "We spent the night creating an incredibly detailed timeline of the events in the Silmarillion.",
+            "We got hyperfocused on calculating the exact optimal angle to slice a sandwich to maximize crust-to-filling ratio.",
+            "We spent all afternoon writing a 30-page manifesto on why the metric system is objectively superior.",
+            "We got distracted researching the mechanical design of 19th-century wind-up pocket watches."
+        ];
+
+        let subtextInterval;
+
+        // Reset elements back to initial state
+        function resetApp() {
+            // Close modal with transitions
+            modalCard.classList.remove('scale-100', 'opacity-100', 'animate-shake');
+            modalCard.classList.add('scale-95', 'opacity-0');
+            modalOverlay.classList.remove('opacity-100');
+            modalOverlay.classList.add('opacity-0');
+            
+            setTimeout(() => {
+                modalOverlay.classList.add('hidden');
+                
+                // Show Main Screen
+                mainScreen.classList.remove('hidden');
+                setTimeout(() => {
+                    mainScreen.classList.remove('opacity-0', 'scale-95');
+                    mainScreen.classList.add('opacity-100', 'scale-100');
+                }, 50);
+
+                // Reset Loading Screen Elements
+                loadingScreen.classList.add('hidden');
+                progressBar.style.width = '0%';
+                loadingSubtext.innerText = "Sorting all database entries alphabetically...";
+            }, 300);
+        }
+
+        // Utility to pick 'count' unique random items from the array
+        function getRandomSubtexts(count) {
+            const shuffled = [...dynamicSubtexts].sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, count);
+        }
+
+        // Trigger the magical Autism correction sequence
+        fixBtn.addEventListener('click', () => {
+            // Fade out Main Screen
+            mainScreen.classList.add('opacity-0', 'scale-95');
+            
+            setTimeout(() => {
+                mainScreen.classList.add('hidden');
+                
+                // Show Loading Screen
+                loadingScreen.classList.remove('hidden');
+                
+                // Get 4 random messages to show during this specific run
+                const activeSubtexts = getRandomSubtexts(4);
+                loadingSubtext.innerText = activeSubtexts[0];
+
+                setTimeout(() => {
+                    loadingScreen.classList.remove('opacity-0', 'scale-95');
+                    loadingScreen.classList.add('opacity-100', 'scale-100');
+                    
+                    // Trigger Simulated Progress Bar to fill slowly over 7.2 seconds
+                    progressBar.style.width = '100%';
+                }, 50);
+
+                // Cycle the 4 random messages over a slower interval
+                let step = 1;
+                subtextInterval = setInterval(() => {
+                    if (step < activeSubtexts.length) {
+                        // Subtle transition fade out/in for subtexts
+                        loadingSubtext.style.opacity = '0';
+                        loadingSubtext.style.transform = 'translateY(5px)';
+                        
+                        setTimeout(() => {
+                            loadingSubtext.innerText = activeSubtexts[step];
+                            loadingSubtext.style.opacity = '1';
+                            loadingSubtext.style.transform = 'translateY(0)';
+                            step++;
+                        }, 150);
+                    }
+                }, 1800); // 1.8 seconds per step
+
+                // Wait 7.2 seconds total to complete the slower "Fix"
+                setTimeout(() => {
+                    clearInterval(subtextInterval);
+                    
+                    // Fade out loading screen
+                    loadingScreen.classList.add('opacity-0', 'scale-95');
+                    
+                    setTimeout(() => {
+                        loadingScreen.classList.add('hidden');
+                        
+                        // Select a random funny failure reason from the list of 40
+                        const randomReasonIndex = Math.floor(Math.random() * failureReasons.length);
+                        failureReasonEl.innerText = failureReasons[randomReasonIndex];
+
+                        // Show Custom Error Modal (Mocking failure)
+                        modalOverlay.classList.remove('hidden');
+                        setTimeout(() => {
+                            modalOverlay.classList.remove('opacity-0');
+                            modalOverlay.classList.add('opacity-100');
+                            
+                            modalCard.classList.remove('scale-95', 'opacity-0');
+                            modalCard.classList.add('scale-100', 'opacity-100', 'animate-shake');
+                        }, 50);
+
+                    }, 400);
+
+                }, 7200);
+
+            }, 400);
+        });
+
+        // Event listener for the custom Modal Retry Button
+        closeModalBtn.addEventListener('click', () => {
+            resetApp();
+        });
+
+        // Add support for Escape key on keyboard and tap-to-close overlay
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                resetApp();
+            }
+        });
+    </script>
+</body>
+</html>
