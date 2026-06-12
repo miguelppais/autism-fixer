@@ -5,16 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Autism Fixer Pro</title>
     
-    <!-- Full-Screen PWA Capabilities (Android/Chrome) via Inline Web Manifest -->
-    <link rel="manifest" href='data:application/manifest+json,{"name":"Autism%20Fixer%20Pro","short_name":"AutismFixer","start_url":".","display":"standalone","background_color":"%23030712","theme_color":"%23030712","orientation":"portrait","icons":[{"src":"data:image/svg%252Bxml;utf8,<svg xmlns=%2522http://www.w3.org/2000/svg%2522 viewBox=%25220 0 100 100%2522><rect width=%2522100%2522 height=%2522100%2522 fill=%2522%2523030712%2522/><text y=%2522.9em%2522 font-size=%252280%2522>🧩</text></svg>","sizes":"512x512","type":"image/svg+xml"}]}' />
+    <!-- Legacy Android / Chrome Mobile Standalone Full-Screen Control -->
+    <meta name="mobile-web-app-capable" content="yes">
     
     <!-- iOS Web App Meta Tags (Safari Standalone Mode) -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Autism Fixer">
+
+    <!-- Chrome Mobile & Android Home Screen Icon Fallbacks (if Manifest is ignored) -->
+    <link rel="icon" type="image/svg+xml" sizes="192x192" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100%' height='100%' fill='%23030712'/><text y='75' x='15' font-size='70'>🧩</text></svg>">
+    <link rel="icon" type="image/svg+xml" sizes="512x512" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100%' height='100%' fill='%23030712'/><text y='75' x='15' font-size='70'>🧩</text></svg>">
     
-    <!-- High-Resolution Apple Touch Icon (using an inline SVG) -->
+    <!-- High-Resolution Apple Touch Icon -->
     <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100%' height='100%' fill='%23030712'/><text y='75' x='15' font-size='70'>🧩</text></svg>">
+
+    <!-- Full-Screen PWA Capabilities (Android/Chrome) via strict Base64 Web Manifest -->
+    <link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjoiQXV0aXNtIEZpeGVyIFBybyIsInNob3J0X25hbWUiOiJBdXRpc21GaXhlciIsInN0YXJ0X3VybCI6Ii4iLCJkaXNwbGF5Ijoic3RhbmRhbG9uZSIsImJhY2tncm91bmRfY29sb3IiOiIjMDMwNzEyIiwidGhlbWVfY29sb3IiOiIjMDMwNzEyIiwib3JpZW50YXRpb24iOiJwb3J0cmFpdCIsImljb25zIjpbeyJzcmMiOiJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJkeUI0YlhMdVp6MGlhSFIwY0RvdkwzZDNkeTVvY0dkaFpYTXZNakF3TUM5emRtY2lJSFpwWlhkQ2IzZzlaaUFnTUM4Z01UQXdJR0V4TURBZ2Z6NDhkbVZqZEMzM2FXUmphRzBnUFNJaE1EQXdaU0lnYUdWcFoyMDBQU0loTVRBd1pTSWdaMmxzYURzaU1ETXcoeE1pSWpzd2VHVjRkRzhnUFNJaE56VWlJSGg1UFNJeE5TSWdaMjl1ZEMxemF6bTlaaUloTnpVaUlENXdubmNuUENOemRtY2lmRzgsIiwic2l6ZXMiOiI1MTJ4NTEyIiwidHlwZSI6ImltYWdlL3N2Zyt4bWwiLCJwdXJwb3NlIjoiYW55IG1hc2thYmxlIn1dfQ==" />
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -48,6 +55,7 @@
             }
         }
     </script>
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
         body {
